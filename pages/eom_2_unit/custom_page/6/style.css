@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(16px, 2vw, 25px) !important;
+    font-size: clamp(16px, 1.5vw, 25px) !important;
 }
 html{
     height: 100% !important;
@@ -19,8 +19,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding-left: var(--pl-pr-htc-custom);
-    padding-right: var(--pl-pr-htc-custom); */
 }
 body::-webkit-scrollbar {
     width: 10px;
@@ -29,7 +27,6 @@ body::-webkit-scrollbar-track {
     -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
     background-color: #f9f9fd;
 }
-
 body::-webkit-scrollbar-thumb {
     background-color: #356184;
     background: linear-gradient(180deg, #00c6fb, #005bea);
@@ -39,7 +36,10 @@ h3{
 }
 p{
     text-align: justify;
-    text-indent: 4%;
+    text-indent: 0%;
+    margin-bottom: 15px;
+}
+.margin{
     margin-bottom: 15px;
 }
 ul li{
@@ -49,21 +49,19 @@ dialog {
     position: absolute;
     text-align: end;
     left: 25%;
-    top: 50%;
+    top: 5%;
     width: 50%;
     height: 100%;
     border-radius: 20px; /* Закругленные углы */
     padding: 20px; /* Отступы внутри окна */
     border: none; /* Убираем стандартные границы */
-    box-shadow: var(--main-box-shadow-custom); /* Тень для глубины */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для глубины */
     height: 80%;
-    max-height: 1000px;
+    max-height: 900px;
 }
-
 dialog::-webkit-scrollbar {
     width: 0px;
 }
-
 dialog button {
     position: absolute;
     top: 10px;
@@ -82,37 +80,30 @@ dialog button {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
+    z-index: 1001;
 }
-
 dialog::-webkit-scrollbar-track {
     -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
     background-color: #f9f9fd;
 }
-
 dialog::-webkit-scrollbar-thumb {
     background-color: #356184;
     background: linear-gradient(180deg, #00c6fb, #005bea);
 }
-
 dialog p{
     width: 95% !important;
     height: 95%;
     text-align: center;
 }
-
 dialog p img{
     height: 100%;
     width: 100% !important;
     max-width: 700px;
     object-fit: contain;
 }
-
 dialog::backdrop {
-    background: rgba(0, 0, 0, 0.0); /* Полупрозрачный фон для модального окна */
+    background: rgba(0, 0, 0, 0); /* Полупрозрачный фон для модального окна */
 }
-
 .main_wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -121,6 +112,7 @@ dialog::backdrop {
     margin: 25px;
     height: 100% !important;
     width: 100% !important;
+    margin-top: 0;
 }
 table.iksweb{
 	width: 100%;
@@ -145,6 +137,12 @@ table.iksweb th {
 .blue_paragraph{
     color: var(--main-blue-color-custom);
     font-weight: 800;
+    width: 100%;
+    text-indent: 0%;
+}
+.list_wrapper_custom{
+    margin-top: 15px;
+    margin-left: 35px;
 }
 .table_first_header_custom{
     text-align: start;
@@ -152,6 +150,10 @@ table.iksweb th {
     font-weight: 900;
     color: #44546a;
     font-size: 30px;
+}
+.no_margin, .no_margin li{
+    text-indent: 0%;
+    margin: 0;
 }
 .table_header_custom{
     text-align: center;
@@ -165,11 +167,9 @@ table.iksweb th {
     gap: 20px; /* Отступ между текстом и изображением */
     align-items: stretch; /* Растягивает оба блока по высоте */
 }
-
 .text_left_custom {
     width: 70%; /* Ширина текстового блока */
 }
-
 .text_image_right_custom {
     position: relative;
     width: 30%; /* Ширина изображения */
@@ -182,8 +182,8 @@ table.iksweb th {
     align-items: center; /* Центрирует изображение по вертикали */
     justify-content: center; /* Центрирует изображение по горизонтали */
     flex-grow: 1; /* Растягивает блок по высоте */
+    max-height: 620px;
 }
-
 .zoom_button {
     cursor: pointer;
     top: 0;
@@ -198,7 +198,6 @@ table.iksweb th {
     border: 0;
     background-color: #0070c085;
 }
-
 .zoom_button img{
     margin: 10px;
     max-width: 35px !important;
@@ -206,7 +205,6 @@ table.iksweb th {
     min-height: 35px !important;
     min-width: 35px !important;
 }
-
 .close_button_custom img{
     margin: 10px;
     max-width: 35px !important;
@@ -214,35 +212,28 @@ table.iksweb th {
     min-height: 35px !important;
     min-width: 35px !important;
 }
-
 .w100{
     margin-top: 0;
     width: 100% !important;
 }
-
 .w100 p{
     margin-bottom: 0;
 }
-
 .w100 h3{
     margin-top: 10px;
 }
-
-
 .text_image_right_custom img {
     width: inherit;
     height: auto;
-    min-height: 300px;
-    min-width: 300px;
+    min-height: 380px;
+    min-width: 380px;
 }
-
 .second_img_custom img{
     width: inherit;
     height: inherit;
     min-height: 320px;
     min-width: 350px;
 }
-
 @media (max-width: 1180px) {
     .text_image_right_custom img {
         min-height: 320px;
@@ -255,7 +246,6 @@ table.iksweb th {
     .text_left_custom {
         width: 100%; /* Ширина текстового блока */
     }
-    
     .text_image_right_custom {
         width: 60%; /* Ширина изображения */
     }
@@ -265,7 +255,6 @@ table.iksweb th {
         top: 5%;
     }
 }
-
 @media (max-width: 800px) {
     :root{
         --pl-pr-htc-custom: 10px;
@@ -279,7 +268,6 @@ table.iksweb th {
         top: 5%;
     }
 }
-
 @media (max-width: 580px) {
     dialog {
         width: 96%;

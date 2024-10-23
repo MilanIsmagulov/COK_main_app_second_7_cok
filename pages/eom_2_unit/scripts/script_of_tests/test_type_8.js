@@ -1,4 +1,4 @@
-var planeText = document.querySelector('.plane_text');
+var planeText = document.querySelector('.test_wrapper_type_10');
 if (!planeText) {
     function createTest(index){
         var test = data[index].test;
@@ -67,8 +67,8 @@ if (!planeText) {
         var occupiedTargets = {}; // key: targetFieldId, value: circleIndex
         var circleOccupancy = {}; // key: circleIndex, value: targetFieldId or null
         function updateSVG_Type7() {
-            var planeText = document.querySelector('.plane_text');
-            if (!planeText) {
+            var planeText = document.querySelector('.test_wrapper_type_10');
+            if (planeText) {
                 var mappingRect = document.querySelector('.mapping').getBoundingClientRect();
                 // Пересчитываем стартовые позиции
                 for (var i = 1; i <= Object.keys(startPositions).length; i++) {
@@ -337,8 +337,8 @@ if (!planeText) {
         openPopUp();
         function updatePositionsOnResize() {
             // Получаем новые размеры и координаты контейнера .mapping
-            var planeText = document.querySelector('.plane_text');
-            if (!planeText) {
+            var planeText = document.querySelector('.test_wrapper_type_10');
+            if (planeText) {
                 var mappingRect = document.querySelector('.mapping').getBoundingClientRect();
                 // Обновляем координаты стартовых полей и их кругов
                 for (var i = 1; i <= Object.keys(startPositions).length; i++) {
