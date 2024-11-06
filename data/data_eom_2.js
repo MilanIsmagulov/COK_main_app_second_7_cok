@@ -9,7 +9,7 @@ const data = {
             {"image": false, "image_path": "./content/test_image.png"}
         ],
         "paragraph_2":[
-            {"custom": "<iframe id='customFrame' src='./custom_page/1/index.html' style='width: 100%; border: none;' allow='fullscreen; autoplay' scrolling='no'></iframe>"},
+            {"custom": `<iframe id='customFrame' src='./custom_page/1/index.html' style='width: 100%; border: none;' allow='fullscreen; autoplay' scrolling='no'></iframe>`},
             {"image": false, "image_path": "./content/page_content/img_1_1.png", "img_sign": " "}
         ],
     },

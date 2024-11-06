@@ -28,6 +28,23 @@ a{
     transform: scale(1.0);
     animation: shakeAnimation  0.5s ease;
 }
+.pink_subtitle{
+    font-size: 30px !important;
+    font-weight: 700;
+    margin-left: 15px;
+    color: rgb(255, 114, 118);
+    list-style: none;
+    margin-left: -40px;
+}
+
+.popup_method_list li:has(.pink_subtitle){
+    list-style: none;
+}
+
+.popup_method_list li:has(.none_list){
+    margin-left: -15px;
+    list-style: none;
+}
 @keyframes shakeAnimation  {
     0% {
         transform: rotate(0deg);
