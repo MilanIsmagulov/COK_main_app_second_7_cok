@@ -1,13 +1,23 @@
 // Access answers array from the data object
 document.getElementById('control_button_3').style.display = 'none';
 document.getElementById('control_button_2').style.display = 'inline-block';
-if (blockButtonEOM2 === 1){
-    backWardBtn.classList.add('gray_dis');
-    backWardBtn.disabled = true;
-    nextBtn.classList.add('gray_dis');
-    nextBtn.disabled = true;
-}
 function checkParagraph(){
+    function checkBtnStatus(){
+        var testData = data[`index_${currentPageIndex}`];
+        var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+        if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+            nextBtn.classList.add('gray_dis');
+            nextBtn.disabled = true;
+        } else {
+            backWardBtn.classList.remove('gray_dis');
+            backWardBtn.disabled = false;
+            nextBtn.classList.remove('gray_dis');
+            nextBtn.disabled = false;
+        }
+    }
+    checkBtnStatus();
     var testObj = data[`index_${currentPageIndex}`].test;
     if (!testObj){
         return; // Полностью прерываем выполнение функции
@@ -40,17 +50,19 @@ function checkParagraph(){
     var mainWrapper = document.createElement('div');
     mainWrapper.classList.add('main_wrapper');
     if (imageObj && imageObj.image){
-        var imgElement;
-        if (imageObj.image_path.includes(".jpg") || imageObj.image_path.includes(".png")){
-            imgElement = document.createElement('img');
-        }else if (imageObj.image_path.includes(".mp4")){
-            imgElement = document.createElement('video');
-            imgElement.controls = "controls";
+        if(imageObj){
+            var imgElement;
+            if (imageObj.image_path.includes(".jpg") || imageObj.image_path.includes(".png")){
+                imgElement = document.createElement('img');
+            }else if (imageObj.image_path.includes(".mp4")){
+                imgElement = document.createElement('video');
+                imgElement.controls = "controls";
+            }
+            imgElement.src = imageObj.image_path
+            imgElement.alt = 'Test Image';
+            imgElement.className = 'test_image';
+            mainWrapper.appendChild(imgElement);
         }
-        imgElement.src = imageObj.image_path
-        imgElement.alt = 'Test Image';
-        imgElement.className = 'test_image';
-        mainWrapper.appendChild(imgElement);
     }
     contentDiv.appendChild(mainWrapper);
     mainWrapper.appendChild(dynamicContainer);
@@ -155,7 +167,7 @@ function checkParagraph(){
         document.getElementById('control_button_3').style.display = 'none';
         nextBtn.classList.remove('gray_dis');
         nextBtn.disabled = false;
-        window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокированна!!!");
+        window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокирована!!!");
     }
     // ЭТО ДЛЯ ОШИБОК
     function disabvarest(){

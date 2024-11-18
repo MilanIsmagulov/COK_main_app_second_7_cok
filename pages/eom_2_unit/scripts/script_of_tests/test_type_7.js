@@ -1,19 +1,25 @@
-if (blockButtonEOM2 === 1){
-    backWardBtn.classList.add('gray_dis');
-    backWardBtn.disabled = true;
-    nextBtn.classList.add('gray_dis');
-    nextBtn.disabled = true;
-};
 answerButton.disabled = false;
 answerButton.classList.remove('gray_dis');
 var element = document.querySelector('.number_of_step');
 var number = parseInt(element.textContent, 10);
 var attempts = localStorage.getItem(`attempts_${number}`);
-if (attempts == 0){
-    answerButton.classList.add('gray_dis');
-    answerButton.disabled = true;
-}
 function checkParagraph(){
+    function checkBtnStatus(){
+        var testData = data[`index_${currentPageIndex}`];
+        var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+        if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+            nextBtn.classList.add('gray_dis');
+            nextBtn.disabled = true;
+        } else {
+            backWardBtn.classList.remove('gray_dis');
+            backWardBtn.disabled = false;
+            nextBtn.classList.remove('gray_dis');
+            nextBtn.disabled = false;
+        }
+    }
+    checkBtnStatus();
     function waitForData() {
         if (window.dataLoaded) {
             // Функция для создания теста

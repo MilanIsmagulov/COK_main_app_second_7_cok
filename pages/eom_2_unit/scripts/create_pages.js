@@ -12,11 +12,11 @@ const nextBtn = document.getElementById('control_button_4');
 const answerBtn = document.getElementById('control_button_2');
 function waitForData(){
     if (window.dataLoaded){
-        backWardBtn.classList.add('gray_dis');
-        backWardBtn.disabled = true;
-        function clearLocalStorage(){
-        };
         if (currentPageIndex == 1){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+            function clearLocalStorage(){
+            };
             for(var i = 1; i <= Object.keys(data).length; i++){
                 localStorage.setItem(`attempts_${i}`, '2');
             }
@@ -419,6 +419,7 @@ function waitForData(){
                     behavior: 'auto' // Мгновенно (auto) или плавно (smooth)
                 });
             }, 0);
+            checkBtnStatus();
         };
         function showAnswerBtn(){
             answerButton.classList.add('gray_dis');
@@ -436,5 +437,20 @@ function waitForData(){
         // Если данные ещё не загружены, ждем и проверяем снова
         setTimeout(waitForData, 50);
     };
+    function checkBtnStatus(){
+        var testData = data[`index_${currentPageIndex}`];
+        var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+        if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+            nextBtn.classList.add('gray_dis');
+            nextBtn.disabled = true;
+        } else {
+            backWardBtn.classList.remove('gray_dis');
+            backWardBtn.disabled = false;
+            nextBtn.classList.remove('gray_dis');
+            nextBtn.disabled = false;
+        }
+    }
 };
 waitForData();

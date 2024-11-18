@@ -1,6 +1,24 @@
 var planeText = document.querySelector('.test_wrapper_type_10');
+function checkBtnStatus(){
+    var testData = data[`index_${currentPageIndex}`];
+    var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+    if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+        backWardBtn.classList.add('gray_dis');
+        backWardBtn.disabled = true;
+        nextBtn.classList.add('gray_dis');
+        nextBtn.disabled = true;
+    } else {
+        backWardBtn.classList.remove('gray_dis');
+        backWardBtn.disabled = false;
+        nextBtn.classList.remove('gray_dis');
+        nextBtn.disabled = false;
+    }
+}
+checkBtnStatus();
 if (!planeText) {
     function createTest(index){
+        document.getElementById('control_button_3').style.display = 'none';
+        document.getElementById('control_button_2').style.display = 'inline-block';
         var test = data[index].test;
         if (test.paragraph_1){
             document.getElementById('control_button_1').classList.remove('gray_dis');
@@ -178,12 +196,16 @@ if (!planeText) {
                         var correctAnswers = correctAnswersObj ? correctAnswersObj.correct_answer_type_10 : null;
                         console.log(correctAnswers); // Глобальная переменная для правильных ответов
                         function checkLength() {
-                            if (result.length != Object.keys(correctAnswers).length) {
-                                answerButton.classList.add('gray_dis');
-                                answerButton.disabled = true;
-                            } else {
-                                answerButton.classList.remove('gray_dis');
-                                answerButton.disabled = false;
+                            var attempts = localStorage.getItem(`attempts_${currentPageIndex}`);
+                            console.log(attempts)
+                            if(attempts != 0){
+                                if (result.length != Object.keys(correctAnswers).length) {
+                                    answerButton.classList.add('gray_dis');
+                                    answerButton.disabled = true;
+                                } else {
+                                    answerButton.classList.remove('gray_dis');
+                                    answerButton.disabled = false;
+                                }
                             }
                         }
                         checkLength();
@@ -275,6 +297,7 @@ if (!planeText) {
                     if (result[i] === correctAnswers[i]) {
                         // Если ответ правильный, добавляем класс correct
                         element.classList.add('correct');
+                        
                     } else {
                         allCorrect = false;
                         partiallyCorrect = true;
@@ -286,6 +309,12 @@ if (!planeText) {
                     };
                 } else {
                     console.warn(`Элемент для индекса ${i} не найден.`);
+                }
+                if (allCorrect){
+                    backWardBtn.classList.remove('gray_dis');
+                    backWardBtn.disabled = false;
+                    nextBtn.classList.remove('gray_dis');
+                    nextBtn.disabled = false;
                 }
             }
             if (shouldDecreaseAttempts){

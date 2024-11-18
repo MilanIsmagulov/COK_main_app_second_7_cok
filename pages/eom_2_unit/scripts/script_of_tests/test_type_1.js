@@ -1,10 +1,20 @@
 function waitForData() {
-    if (blockButtonEOM2 === 1){
-        backWardBtn.classList.add('gray_dis');
-        backWardBtn.disabled = true;
-        nextBtn.classList.add('gray_dis');
-        nextBtn.disabled = true;
+    function checkBtnStatus(){
+        var testData = data[`index_${currentPageIndex}`];
+        var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+        if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+            nextBtn.classList.add('gray_dis');
+            nextBtn.disabled = true;
+        } else {
+            backWardBtn.classList.remove('gray_dis');
+            backWardBtn.disabled = false;
+            nextBtn.classList.remove('gray_dis');
+            nextBtn.disabled = false;
+        }
     }
+    checkBtnStatus();
     if (window.dataLoaded) {
         // Функция для создания теста
         function createTest(index) {
@@ -83,19 +93,21 @@ function waitForData() {
             }
             // Отображение изображения, если имеется
             if (imageInfo && test.find(item => item.type === 1) || test.find(item => item.type === 2)) {
-                var imageDiv = document.createElement('div');
-                imageDiv.className = 'image_test_type_2';
-                var img;
-                if (imageInfo.image_path.includes(".jpg") || imageInfo.image_path.includes(".png")) {
-                    img = document.createElement('img');
-                } else if (imageInfo.image_path.includes(".mp4")) {
-                    img = document.createElement('video');
-                    img.controls = "controls";
+                if(imageInfo){
+                    var imageDiv = document.createElement('div');
+                    imageDiv.className = 'image_test_type_2';
+                    var img;
+                    if (imageInfo.image_path.includes(".jpg") || imageInfo.image_path.includes(".png")) {
+                        img = document.createElement('img');
+                    } else if (imageInfo.image_path.includes(".mp4")) {
+                        img = document.createElement('video');
+                        img.controls = "controls";
+                    }
+                    img.src = imageInfo.image_path;
+                    img.alt = 'Проверьте image_path';
+                    imageDiv.appendChild(img);
+                    dynamicContainer.appendChild(imageDiv);
                 }
-                img.src = imageInfo.image_path;
-                img.alt = 'Проверьте image_path';
-                imageDiv.appendChild(img);
-                dynamicContainer.appendChild(imageDiv);
             }
             // Отображение теста с вариантами ответов
             if (answers && correctAnswers) {
@@ -249,7 +261,9 @@ function waitForData() {
             document.getElementById('control_button_3').style.display = 'none';
             nextBtn.classList.remove('gray_dis');
             nextBtn.disabled = false;
-            window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокированна!!!");
+            backWardBtn.classList.remove('gray_dis');
+            backWardBtn.disabled = false;
+            window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокирована!!!");
         };
         // ЭТО ДЛЯ ОШИБОК
         function disabvarest() {
@@ -312,10 +326,13 @@ function waitForData() {
                     nextBtn.disabled = false;
                 } else {
                     // Если есть ошибки, блокируем кнопки
-                    backWardBtn.classList.add('gray_dis');
-                    backWardBtn.disabled = true;
-                    nextBtn.classList.add('gray_dis');
-                    nextBtn.disabled = true;
+                    if (attempts != 0){
+                        var attempts = localStorage.getItem(`attempts_${number}`);
+                        backWardBtn.classList.add('gray_dis');
+                        backWardBtn.disabled = true;
+                        nextBtn.classList.add('gray_dis');
+                        nextBtn.disabled = true;
+                    }
                 }
                 // Переключаем видимость кнопок в зависимости от количества попыток
                 if (attempts != 0) {
