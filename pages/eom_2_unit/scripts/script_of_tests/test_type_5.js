@@ -1,29 +1,31 @@
 document.getElementById('control_button_3').style.display = 'none';
 document.getElementById('control_button_2').style.display = 'inline-block';
-answerButton.classList.remove('gray_dis');
-answerButton.disabled = false;
+
 var element = document.querySelector('.number_of_step');
 var number = parseInt(element.textContent, 10);
 var attempts = localStorage.getItem(`attempts_${number}`);
 restartButton.classList.add('hidden');
 restartButton.disabled = false;
-function checkParagraph(){
-    function checkBtnStatus(){
-        var testData = data[`index_${currentPageIndex}`];
-        var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
-        if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
-            backWardBtn.classList.add('gray_dis');
-            backWardBtn.disabled = true;
-            nextBtn.classList.add('gray_dis');
-            nextBtn.disabled = true;
-        } else {
-            backWardBtn.classList.remove('gray_dis');
-            backWardBtn.disabled = false;
-            nextBtn.classList.remove('gray_dis');
-            nextBtn.disabled = false;
-        }
+function checkBtnStatus(){
+    var testData = data[`index_${currentPageIndex}`];
+    var attempts = parseInt(localStorage.getItem(`attempts_${currentPageIndex}`));
+    if(blockButtonEOM2 == 1 && attempts !== 0 && testData.hasOwnProperty('test')){
+        backWardBtn.classList.add('gray_dis');
+        backWardBtn.disabled = true;
+        answerButton.classList.remove('gray_dis');
+        answerButton.disabled = false;
+        nextBtn.classList.add('gray_dis');
+        nextBtn.disabled = true;
+    } else {
+        backWardBtn.classList.remove('gray_dis');
+        backWardBtn.disabled = false;
+        nextBtn.classList.remove('gray_dis');
+        nextBtn.disabled = false;
     }
-    checkBtnStatus();
+}
+checkBtnStatus();
+function checkParagraph(){
+
     var testObj = data[`index_${currentPageIndex}`].test;
     if (!testObj){
         return; // Полностью прерываем выполнение функции
@@ -110,7 +112,9 @@ function checkParagraph(){
         document.getElementById('control_button_3').style.display = 'none';
         nextBtn.classList.remove('gray_dis');
         nextBtn.disabled = false;
-        window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокированна!!!");
+        backWardBtn.classList.remove('gray_dis');
+        backWardBtn.disabled = false;
+        window.alert("Вы потратили все попытки для прохождения задания, кнопка 'Ответить' заблокирована!!!");
     }
     // ЭТО ДЛЯ ОШИБОК
     function disabvarest(){

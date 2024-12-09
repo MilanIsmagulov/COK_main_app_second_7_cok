@@ -1,6 +1,6 @@
 // Логика, которая зависит от данных
 // Инициализация текущего индекса страницы
-let currentPageIndex = 1;
+let currentPageIndex = 22;
 let currentTestIndex = null;
 const answerButton = document.getElementById('control_button_2');
 const restartButton = document.getElementById('control_button_3');
@@ -10,6 +10,7 @@ const mainBody = document.getElementById('main_body_1');
 const backWardBtn = document.getElementById('control_button_1');
 const nextBtn = document.getElementById('control_button_4');
 const answerBtn = document.getElementById('control_button_2');
+
 function waitForData(){
     if (window.dataLoaded){
         if (currentPageIndex == 1){
@@ -379,7 +380,7 @@ function waitForData(){
             showAnswerBtn();
             // Удаляем скрипты тестов перед переходом на новую страницу
             removeTestScripts();
-            clearLocalStorage();
+            //
             // Получение количества страниц
             const numOfPages = Object.keys(data).length;
             // Проверка, что новый индекс страницы в допустимых пределах
@@ -451,6 +452,10 @@ function waitForData(){
             nextBtn.classList.remove('gray_dis');
             nextBtn.disabled = false;
         }
+        if (currentPageIndex == 1){
+            backWardBtn.classList.add('gray_dis');
+            backWardBtn.disabled = true;
+        };
     }
 };
 waitForData();

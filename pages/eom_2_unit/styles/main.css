@@ -42,8 +42,8 @@ footer {
     z-index: 1500;
 }
 p{
-    text-align: justify;
-    text-indent: 4%;
+    text-align: left;
+    text-indent: 0%;
     margin-bottom: 25px;
     font-size: clamp(18px, 1.5vw, 25px);
     margin-left: 25px;
@@ -460,7 +460,7 @@ line{
     max-width: 250px;
 }
 .description_w_input_2 {
-    width: 65%;
+    width: 100%;
     margin-left: 25px;
 }
 .description_w_input_2 p{
@@ -851,7 +851,7 @@ ul li div{
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: space-between;
-    font-size: 25px;
+    font-size: clamp(14px, 1.8vw, 25px) !important;
     font-weight: 700;
     background-color: rgb(0, 114, 192);
     color: #fff;
@@ -1034,7 +1034,7 @@ line{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 60% !important;
+    width: 100% !important;
 }
 .test_wrapper_type_10{
     display: flex;
@@ -1132,10 +1132,10 @@ line{
 .targetField, .definition{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left !important;
     margin-right: 15px;
-    font-size: clamp(15px, 1.5vw, 25px);
-    width: clamp(150px, 20vw, 450px);
+    font-size: clamp(15px, 1.5vw, 20px);
+    width: clamp(150px, 30vw, 750px);
     height: 100px;
     margin-left: 15px;
 }
@@ -1268,10 +1268,8 @@ line{
 .zoom_paragraph{
     display: block;
     height: initial !important;
-    width: 350px;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis !important; 
+    width: 550px;
+    font-size: clamp(16px, 1.5vw, 22px);
     align-items: center !important;
     justify-content: flex-start !important;
 }
@@ -1523,9 +1521,6 @@ line{
         min-width: initial !important;
         width: 100% !important;
         padding: 12px !important;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
     }
     .drag1{
         gap: 10px;
@@ -1693,8 +1688,12 @@ line{
     }
 }
 @media (max-width: 510px) {
-    .number {
-        font-size: 20px;
+    .black_title{
+        flex-direction: column;
+    }
+    #backward_button{
+        margin: 0;
+        margin-bottom: 25px;
     }
     .item_dr{
         font-size: 10px;
@@ -1704,9 +1703,6 @@ line{
     }
     .drag1 {
         gap: 1px !important;
-    }
-    .number{
-        font-size: 20px !important;
     }
     .list{
         padding: 5px !important;
@@ -1761,6 +1757,10 @@ line{
     }
 }
 @media (max-width: 1000px) {
+    .targetField, .definition {
+        height: 160px;
+    }
+
     :root{
         --v: 25px;
     }
