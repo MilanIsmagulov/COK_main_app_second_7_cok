@@ -6,20 +6,20 @@ window.dataLoaded = false;
     let timings = [ // если typeOfButtons = 'video'
         { time: 0.52, name: "Основы стандартизации" },
         { time: 3.80, name: "История стандартизации" },
-        { time: 13.10, name: "Техническое регулирование" },
+        { time: 13.18, name: "Техническое регулирование" },
         { time: 14.07, name: "Цель технического регулирования" },
-        { time: 15.41, name: "Технический регламент" },
+        { time: 15.51, name: "Технический регламент" },
         { time: 17.42, name: "Стандартизация" },
-        { time: 18.69, name: "Цели стандартизации" },
+        { time: 18.79, name: "Цели стандартизации" },
         { time: 25.02, name: "Принципы стандартизации" },
-        { time: 28.97, name: "Методы стандартизации" },
+        { time: 29.10, name: "Методы стандартизации" },
         { time: 35.44, name: "Документы по стандартизации в России" },
-        { time: 47.51, name: "Стандартизация в ИТ" },
-        { time: 65.52, name: "Системы менеджмента качества и менеджмент качества" },
-        { time: 98.06, name: "Роль стандартизации в будущем" }
+        { time: 47.7, name: "Стандартизация в ИТ" },
+        { time: 65.60, name: "Системы менеджмента качества и менеджмент качества" },
+        { time: 98.16, name: "Роль стандартизации в будущем" }
     ]; // если typeOfButtons = 'video'
     let pathToVideo = './content/page_content/video/video_7.mp4'; // если typeOfButtons = 'video'
-    let videoTitle2 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'; // если typeOfButtons = 'video'
+    let videoTitle2 = ' '; // если typeOfButtons = 'video'
     // В CSS должна быть к каждому id или class приписка "_custom", и закидываем их в файл "pages/eom_1_unit/styles/custom_pages.css"
     let customPage = ``; // В CSS должна быть к каждому id или class приписка "_custom", и закидываем их в файл "pages/eom_1_unit/styles/custom_pages.css"
     let background_type = dropType;

@@ -621,7 +621,8 @@ summary {
 }
 .content_details {
     max-height: 0;
-    overflow: hidden;
+    overflow-y: scroll;
+
 }
 details[open] .content_details {
     max-height: 500px; /* Достаточно большая высота для содержимого */
