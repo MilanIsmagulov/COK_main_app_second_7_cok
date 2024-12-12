@@ -18,7 +18,7 @@ window.dataLoaded = false;
         { time: 65.52, name: "Системы менеджмента качества и менеджмент качества" },
         { time: 98.06, name: "Роль стандартизации в будущем" }
     ]; // если typeOfButtons = 'video'
-    let pathToVideo = './content/page_content/video_7.mp4'; // если typeOfButtons = 'video'
+    let pathToVideo = './content/page_content/video/video_7.mp4'; // если typeOfButtons = 'video'
     let videoTitle2 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'; // если typeOfButtons = 'video'
     // В CSS должна быть к каждому id или class приписка "_custom", и закидываем их в файл "pages/eom_1_unit/styles/custom_pages.css"
     let customPage = ``; // В CSS должна быть к каждому id или class приписка "_custom", и закидываем их в файл "pages/eom_1_unit/styles/custom_pages.css"
