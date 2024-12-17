@@ -159,7 +159,7 @@ function checkParagraph(){
                         shouldDecreaseAttempts = true; // Устанавливаем флаг для уменьшения попыток
                     };
                 });
-                if (isCorrect){
+                if (allCorrect){
                     backWardBtn.classList.remove('gray_dis');
                     backWardBtn.disabled = false;
                     nextBtn.classList.remove('gray_dis');
