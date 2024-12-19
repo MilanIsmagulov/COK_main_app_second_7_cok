@@ -1564,7 +1564,7 @@ function onCircleDragEnd_Type6(e, circleElement, index, type6Data) {
         targetField.classList.remove('error-type6');
 
     } else {
-        // Кружок не над таргетом — возвращаем на старт
+        // Кружок не над таргетом – возвращаем на старт
         circleElement.animate(300).center(startPositions[index].x, startPositions[index].y);
         lines[index].plot(startPositions[index].x, startPositions[index].y, startPositions[index].x, startPositions[index].y);
 

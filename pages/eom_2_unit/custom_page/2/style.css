@@ -79,13 +79,25 @@ ul li{
     display: flex; 
     margin: 10px;
 }
-.main_wrapper > div:nth-child(odd) > div > div{
+.main_wrapper > div:nth-child(4n+1) > div > div{
     background-image: url('./primitives/pr_1.png');
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.main_wrapper > div:nth-child(even) > div > div{
+.main_wrapper > div:nth-child(4n+4) > div > div{
+    background-image: url('./primitives/pr_1.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.main_wrapper > div:nth-child(4n+2) > div > div{
+    background-image: url('./primitives/pr_2.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.main_wrapper > div:nth-child(4n+3) > div > div{
     background-image: url('./primitives/pr_2.png');
     background-position: center;
     background-size: 100% 100%;

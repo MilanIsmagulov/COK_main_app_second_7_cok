@@ -28,8 +28,8 @@ header, footer {
     background-color: #333;
 }
 p {
-    text-align: justify;
-    text-indent: 4%;
+    text-align: left;
+    text-indent: 0%;
     margin-bottom: 25px;
     font-size: clamp(18px, 1.5vw, 25px);
     margin-left: 25px;
@@ -58,8 +58,8 @@ footer {
     background-color: rgba(255, 255, 255, 0.772);
 }
 p {
-    text-align: justify;
-    text-indent: 4%;
+    text-align: left;
+    text-indent: 0%;
     margin: 0 25px 25px;
     font-size: clamp(18px, 1.5vw, 25px);
 }
@@ -677,8 +677,8 @@ body, html {
     width: 40%;
 }
 .plane_text p {
-    text-align: justify;
-    text-indent: 4%;
+    text-align: left;
+    text-indent: 0%;
     margin-bottom: 25px;
     font-size: clamp(18px, 1.5vw, 25px);
     margin-left: 25px;
