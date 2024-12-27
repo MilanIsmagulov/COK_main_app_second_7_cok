@@ -140,6 +140,10 @@ dialog::backdrop {
     color: #18a67e;
     --color: #18a67e;
 }
+.eight_color{
+    color: #bf0101;
+    --color: #bf0101;
+}
 .circle_custom{
     color: #fff;
 }
